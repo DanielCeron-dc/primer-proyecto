@@ -1,5 +1,5 @@
 
-import UI from '../modulos clases/Ui.js';
+import UI from '../modulos staticos/Ui.js';
 import funciones from "../modulos staticos/Matriculas.js";
 
 
@@ -12,14 +12,8 @@ document.getElementById('matricula-form').addEventListener('submit',function(e){
     e.preventDefault();
 })
 
-    
-
-document.getElementById('matricula-form').addEventListener('keypress', function(e) {
-    
-    
-})
 
 document.getElementById ('matricula-list').addEventListener('click', function(e){
-    const ui = new UI();
-    ui.DeleteProductThreeParents(e.target);
+    
+    UI.DeleteProductThreeParents(e.target);
 })

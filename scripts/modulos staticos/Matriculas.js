@@ -1,7 +1,7 @@
 
 import Estudiante from "../modulos clases/ClsEstudiante.js";
-import UX from "../modulos clases/UX.js";
-import UI from "../modulos clases/Ui.js";
+import UX from "./UX.js";
+import UI from "./Ui.js";
 
 
 export default class Matriculas {

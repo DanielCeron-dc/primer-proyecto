@@ -16,14 +16,14 @@ export default class  UI {
         ElmentToDelete.parentElement.remove();
         UI.ShowMessage('Elemento eliminado satisfactoriamente','info');
     }
-    DeleteProductTwoParents(element){
+    static DeleteProductTwoParents(element){
       
         if (element.name === 'delete'){
             ElmentToDelete.parentElement.remove();
             UI.ShowMessage('Elemento eliminado satisfactoriamente','info')
         }
     }
-    DeleteProductThreeParents(element){
+    static DeleteProductThreeParents(element){
         if (element.name === 'delete'){
             console.log(element.parentElement.parentElement.parentElement.remove());
             UI.ShowMessage('Elemento eliminado satisfactoriamente','info')

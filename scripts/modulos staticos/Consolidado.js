@@ -1,6 +1,6 @@
 
 import ClsGrupo from "../modulos clases/ClsGrupo.js";
-import UI from '../modulos clases/Ui.js';
+import UI from './Ui.js';
 import Animaciones from "../animaciones/popup.js";
 
 
