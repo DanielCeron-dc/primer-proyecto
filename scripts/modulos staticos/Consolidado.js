@@ -1,6 +1,7 @@
 
 import ClsGrupo from "../modulos clases/ClsGrupo.js";
 import UI from '../modulos clases/Ui.js';
+import Animaciones from "../animaciones/popup.js";
 
 
 
@@ -31,6 +32,25 @@ export default class Consolidado {
 
         return true;
 
+    }
+
+
+    static OverlayToEliminateGroup (Element){
+        if (Element.name === 'BtnBorrarGrupo'){
+            UI.DeleteWithOverlay(Element, function () {
+                const array = Element.parentElement.innerText.split(" ");
+                document.getElementById('textPopup').innerHTML = `¿Quieres eliminar el grupo ${array[0]}? `
+                document.getElementById('deleteConfirmation').innerHTML = `<a href="#" class="btn btn-danger btn-submit-animacion" >Sí eliminar</a>`
+                Animaciones.MostrarOverlay(); 
+                return true;
+            })
+        }
+         return false; 
+    }
+
+    static EliminateGroup (){
+        UI.DeleteSelected();
+        Animaciones.OculatarOverlay();
     }
 
 

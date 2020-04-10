@@ -1,8 +1,7 @@
 
-import UI from '../modulos clases/Ui.js';
 import funciones from "../modulos staticos/Consolidado.js";
 
-
+ // ? crear grupo 
 document.getElementById("Grupo-form").addEventListener('submit',function(e){
     funciones.InicializarComponentes();
     if (funciones.VerificarComponentes() === false){return e.preventDefault();} //si es falso evita de que cree un grupo 
@@ -10,8 +9,12 @@ document.getElementById("Grupo-form").addEventListener('submit',function(e){
     e.preventDefault();
 })
 
-  //mostrar creador de grupos
+
+// ? unidir al boton "+" para desplegar menu de opciones para crear grupo
 document.getElementById('BtnCrearGrupo').addEventListener('click', function(e) {funciones.ShowGroupCreator();})
+
+// ? cuando escogemos un color del menu desplegable de colores para grupos
+// ? con esto el boton de escoger color se actualiza con el boton escogido
 document.getElementById('opcionWarning').addEventListener('click', function(e) {
     document.getElementById('btnMenuDesplegable').className = "btn btn-outline border-warning btn-sm btn-space-10px";
     document.getElementById('MenuDesplegable').textContent = "warning";
@@ -36,24 +39,26 @@ document.getElementById('opcionDanger').addEventListener('click', function(e) {
     document.getElementById('btnMenuDesplegable').className = "btn btn-outline border-danger btn-sm btn-space-10px";
     document.getElementById('MenuDesplegable').textContent = "danger";
 })
+// ? si confirmas que quieres eliminar un grupo en el overlay
 if  (document.getElementById('deleteConfirmation')){
     document.getElementById('deleteConfirmation').addEventListener('click', function (){
-        UI.DeleteWithOverlay();
+        funciones.EliminateGroup();
     })
 }
-
-
-// detectar si en la app se undio a algun boton con el nombre app siempre esta activa :C
-document.getElementById ('App').addEventListener('click', function(e){
-    const ui = new UI();
-    ui.DeleteProductTwoParents(e.target);
-})
+// ? cambiar color cabecera de la tabla
 document.getElementById ('gruposCreados').addEventListener('click', function(e){
-    //cambiar color cabecera de la tabla
     funciones.ChangeTableHeader(e.target.className);
-    
-  
 })
+
+// ! metodo muy global
+// ? detectar si en la app se undio a algun boton con el nombre app siempre esta activa :C
+document.getElementById ('App').addEventListener('click', function(e){
+  
+    funciones.OverlayToEliminateGroup(e.target);
+    
+})
+
+
 
 
 // cuando se una a una mensualidad  hacer 

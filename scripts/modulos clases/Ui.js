@@ -1,4 +1,4 @@
-import Animaciones from "../animaciones/popup.js";
+
 
 var ElmentToDelete;
 export default class  UI {
@@ -24,7 +24,6 @@ export default class  UI {
     ResetForm(){
         document.getElementById("matricula-form").reset();
     }
-
     addGrupo (prmGrupo)
     {
         var color1 = "danger";
@@ -43,29 +42,26 @@ export default class  UI {
     ResetFormGrupo(){
         document.getElementById("Grupo-form").reset();
     }
-    static DeleteWithOverlay(){
+    static DeleteSelected(){
         ElmentToDelete.parentElement.remove();
-        Animaciones.OculatarOverlay();
         UI.ShowMessage('Elemento eliminado satisfactoriamente','info');
     }
-
     DeleteProductTwoParents(element){
-        if (element.name === 'BtnBorrarGrupo'){
-            const array = element.parentElement.innerText.split(" ");
-            if (document.querySelector('.overlay')){
-                document.getElementById('textPopup').innerHTML = `¿Quieres eliminar el grupo ${array[0]}? `
-                if ( document.getElementById('deleteConfirmation')){
-                    document.getElementById('deleteConfirmation').innerHTML = `<a href="#" class="btn btn-danger btn-submit-animacion" >Sí eliminar</a>`
-                }
-                Animaciones.MostrarOverlay();
-            }
-            ElmentToDelete = element
-        }
+      
         if (element.name === 'delete'){
             ElmentToDelete.parentElement.remove();
             UI.ShowMessage('Elemento eliminado satisfactoriamente','info')
         }
-     }
+    }
+
+
+    static DeleteWithOverlay (element, fn){
+        if (fn()) {
+            ElmentToDelete = element;
+        }
+
+    }
+
 
     DeleteProductThreeParents(element){
        if (element.name === 'delete'){
@@ -73,6 +69,11 @@ export default class  UI {
            UI.ShowMessage('Elemento eliminado satisfactoriamente','info')
        }
     }
+
+    
+
+
+
 
     static ShowMessage (message, cssClass){
       const div = document.createElement('div');
@@ -88,4 +89,9 @@ export default class  UI {
     }
 }
 
-
+function CheckOverlay() {
+    if (document.querySelector('.overlay')){
+        return true;
+    }
+    return false;
+}
