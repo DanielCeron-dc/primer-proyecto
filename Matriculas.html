@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product App</title>
+  <link rel = "stylesheet" href = "styles/bootstrap.css"> 
+</head>
+<body>
+
+    <!--NAVIGATION-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+     <!-- <img src = "file:///C:/Users/damus/OneDrive/Escritorio/Logo2.jpg" height = "50px" width="50px"  HSPACE="15"/> -->
+      <a class="navbar-brand" href="#">Ballet School App</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+      <div class="navbar-collapse collapse show" id="navbarColor02" >
+            <ul class="navbar-nav mr-auto">
+                 <li id = "navInicio"  class="nav-item">
+                   <a class="nav-link" href="index.html">Inicio</a>
+                 </li>
+                 <li id = "navMatriculas" class="nav-item active">
+                   <a class="nav-link" href="#">Matriculas</a>
+                 </li>
+                 <li id = "navPronto"class="nav-item">
+                  <a class="nav-link" href="Consolidado.html">Consolidado</a>
+                 </li>
+                 <li id ="navAcerca" class="nav-item">
+                  <a class="nav-link" href="Acerca.html">Acerca</a>
+                 </li>
+            </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Buscar">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+              </form>
+      </div>
+    </nav> 
+    <div  class = "container-fluid"  >  
+        <!--APLICATION-->
+        <div id = "App"  class = "row pt-5" > 
+            <div id = "divMatricula-Form" class = "col-md-2.5" >   
+                <div class = "card">   
+                    <div class = "card-header"> 
+                        <h4>  Matricular  </h4>
+                    </div>
+                    <form  id="matricula-form" class = "card-body">
+                        <div class = "form-group"> 
+                           <input type="text" id = "name" placeholder="Nombre" class = "form-control">
+                        </div>
+                        <div class = "form-group">   
+                           <input type="number"   id = "identificacion" step ="1" min = "0"placeholder="identificacion" class = "form-control">
+                        </div>
+                        <div class = "form-group">   
+                           <input type="number"   id = "años" min ="3" max = "100" placeholder="Años" class = "form-control">
+                        </div>
+                        <div class = "form-group">   
+                           <input type="date" id = "fechaDeNacimiento"   min="1950-01-01" max="2018-12-31"  placeholder="Años" class = "form-control">
+                        </div>
+                        <div class = "form-group">   
+                          <input type="number" id = "celular" step ="1" min = "0" placeholder="celular" class = "form-control">
+                       </div>
+                       <center> <input type="submit" value = "Agregar" class = "btn btn-primary btn - block"> </center>
+                    </form>
+                </div>
+            </div>
+                          <!--Aqui se separa del el otro div xd-->                 
+            <div  id = "matricula-list" class = "col-md-8">  </div>
+        </div> <!-- fin de AppMatriculas --> 
+          
+    </div>
+
+    <script type="module" src = "scripts\DOM\Matriculas(DOM).js"> </script>
+</body>
+</html>
