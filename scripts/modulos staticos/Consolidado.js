@@ -56,9 +56,27 @@ export default class Consolidado {
 
 
     static CreateGroup (){
-        const ui = new UI();
         const grupo = new ClsGrupo(this.GroupName, this.GroupColor);
-        ui.addGrupo(grupo);
+        Consolidado.addGroupToUI(grupo)
+    }
+
+
+    static addGroupToUI (prmGrupo){
+        UI.insertElement("gruposCreados", function(){
+            var color = "danger";
+            if (prmGrupo.color === "danger") { color = "warning"}
+            const element = document.createElement('khe');
+            element.innerHTML = `
+                <div class = "btn btn-${prmGrupo.color} btn-space10px ">
+                        <strong></strong>${prmGrupo.nameGroup}
+                        <a href="#"  class = "btn btn-outline-${color} btn-sm"  name = "BtnBorrarGrupo">X</a>
+                </div>
+                `;
+            document.getElementById("Grupo-form").reset();
+            return element;
+        }
+        )
+        
     }
 
     static ShowGroupCreator (){

@@ -47,11 +47,30 @@ export default class Matriculas {
 
     static CreateStudent(){
         const estudiante = new Estudiante(this.name, this.identificacion, this.fechaDeNacimiento,  this.años,  this.celular);
-        const ui = new UI();
-        ui.AddEstudiante(estudiante);
+        Matriculas.AddMatriculaToUI(estudiante);
         UI.ShowMessage('Estudiante Agregado Satisfactoriamente', 'success');
 
 
+    }
+
+    static AddMatriculaToUI (prmEstdiante){
+        UI.insertElement("matricula-list" , function(){
+        const element = document.createElement('div');
+            element.innerHTML = `
+                <div class = "card text-center mb-9">
+                        <div class = "card-body">
+                            <strong>Nombre</strong>: ${prmEstdiante.name}
+                            <strong>Identificacion</strong>: ${prmEstdiante.identificacion}
+                            <strong>Celular</strong>: ${prmEstdiante.celular}
+                            <strong>Fecha de Nacimiento</strong>: ${prmEstdiante.fechaDeNacimiento}
+                            <strong>Años</strong>: ${prmEstdiante.años}
+                            <a href="#"  class = "btn btn-danger" name = "delete"> Delete </a>
+                        </div>
+                </div>
+            `;
+        document.getElementById("matricula-form").reset();
+        return element;
+        })
     }
 
 
