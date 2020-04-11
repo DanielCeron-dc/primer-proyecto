@@ -1,11 +1,12 @@
 
 import ClsGrupo from "../modulos clases/ClsGrupo.js";
+import ClsMEnsualidad from "../modulos clases/ClsMensualidad.js";
 import UI from './Ui.js';
 import Animaciones from "../animaciones/popup.js";
 
 
 
-export default class Consolidado {
+export default class Consolidado_Grupo {
     
     static GroupName;
     static GroupColor;
@@ -17,21 +18,9 @@ export default class Consolidado {
 
 
     static VerificarComponentes (){
-        if (this.GroupName === ""){
-          
-            UI.ShowMessage('Completa los espacios', 'danger');
-            return false;
-
-        }
-        if (this.GroupColor === "Color"){
-            
-            UI.ShowMessage('Elije un color', 'danger');
-            return false;
-            
-        }
-
+        if (this.GroupName === "")          {UI.ShowMessage('Completa los espacios', 'danger');     return false;}
+        if (this.GroupColor === "Color")    {UI.ShowMessage('Elije un color', 'danger');            return false;}
         return true;
-
     }
 
 
@@ -48,18 +37,9 @@ export default class Consolidado {
          return false; 
     }
 
-    static EliminateGroup (){
-        UI.DeleteSelected();
-        Animaciones.OculatarOverlay();
-    }
+    static EliminateGroup (){UI.DeleteSelected();Animaciones.OculatarOverlay();}
 
-
-
-    static CreateGroup (){
-        const grupo = new ClsGrupo(this.GroupName, this.GroupColor);
-        Consolidado.addGroupToUI(grupo)
-    }
-
+    static CreateGroup (){const grupo = new ClsGrupo(this.GroupName, this.GroupColor);Consolidado_Grupo.addGroupToUI(grupo)}
 
     static addGroupToUI (prmGrupo){
         UI.insertElement("gruposCreados", function(){
@@ -102,5 +82,25 @@ export default class Consolidado {
         document.getElementById('tabla-cabecera').className = "table-"+ color[1];
     }
 
+
+}
+
+
+class Consolidado_Mensualidad {
+
+
+    static InicializarComponentes (){
+
+    }
+
+
+    static VerificarComponentes (){
+
+    }
+
+
+    static AddMonthlyPayment (){
+
+    }
 
 }
