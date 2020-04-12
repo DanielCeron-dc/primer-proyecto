@@ -3,7 +3,14 @@
 var ElmentToDelete;
 export default class  UI {
 
+    static CleanOverlay(){
+            document.getElementById("OverlayModificator").innerHTML = ``;
+            document.getElementById("buttons").innerHTML= ``;
+            document.getElementById("deleteConfirmation").innerHTML= ``;
+            document.getElementById("textPopup").innerHTML= ``;
 
+
+    }
 
     static insertElement (prmWhere, fn){
         const  where = document.getElementById(prmWhere);
@@ -19,7 +26,7 @@ export default class  UI {
     static DeleteProductTwoParents(element){
       
         if (element.name === 'delete'){
-            ElmentToDelete.parentElement.remove();
+            ElmentToDelete.parentElement.remove(); 
             UI.ShowMessage('Elemento eliminado satisfactoriamente','info')
         }
     }

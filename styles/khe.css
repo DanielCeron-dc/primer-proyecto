@@ -48,7 +48,7 @@
 	-webkit-border-radius: 0px 103px 103px 103px;
 	border: 1px inset #3a363a;
 	width: 250px;
-	height: 150px;
+	height: auto;
 	padding: 8px 8px;
 }
 

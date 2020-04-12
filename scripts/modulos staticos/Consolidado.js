@@ -28,6 +28,7 @@ export default class Consolidado_Grupo {
         if (Element.name === 'BtnBorrarGrupo'){
             UI.DeleteWithOverlay(Element, function () {
                 const array = Element.parentElement.innerText.split(" ");
+                UI.CleanOverlay();
                 document.getElementById('textPopup').innerHTML = `¿Quieres eliminar el grupo ${array[0]}? `
                 document.getElementById('deleteConfirmation').innerHTML = `<a href="#" class="btn btn-danger btn-submit-animacion" >Sí eliminar</a>`
                 Animaciones.MostrarOverlay(); 
@@ -86,21 +87,3 @@ export default class Consolidado_Grupo {
 }
 
 
-class Consolidado_Mensualidad {
-
-
-    static InicializarComponentes (){
-
-    }
-
-
-    static VerificarComponentes (){
-
-    }
-
-
-    static AddMonthlyPayment (){
-
-    }
-
-}

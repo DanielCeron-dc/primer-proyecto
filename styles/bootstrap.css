@@ -1285,6 +1285,10 @@ pre code {
             flex: 0 0 100%;
     max-width: 100%;
   }
+  .btn-spaceY25px{
+    margin-top: 25px;
+  }
+
   .btn-space50px {
     margin-right: 50px;
   }

@@ -1,5 +1,6 @@
 
 import funciones from "../modulos staticos/Consolidado.js";
+import funciones_mensualidad from "../modulos staticos/ConsolidadoPart2.js"
 
  // ? crear grupo 
 document.getElementById("Grupo-form").addEventListener('submit',function(e){
@@ -53,7 +54,8 @@ document.getElementById ('gruposCreados').addEventListener('click', function(e){
 // ! metodo muy global
 // ? detectar si en la app se undio a algun boton con el nombre app siempre esta activa :C
 document.getElementById ('App').addEventListener('click', function(e){
-  
+    funciones_mensualidad.OverlayToAddMonthlyPayment(e.target);
+    funciones_mensualidad.overlayToEditMonthlyPayment(e.target);
     funciones.OverlayToEliminateGroup(e.target);
     
 })
