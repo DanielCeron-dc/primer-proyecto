@@ -13,7 +13,7 @@ document.getElementById("Grupo-form").addEventListener('submit',function(e){
 
 
 // ? unidir al boton "+" para desplegar menu de opciones para crear grupo
-document.getElementById('BtnCrearGrupo').addEventListener('click', function(e) {funciones_table.CreateTable(); funciones.ShowGroupCreator();})
+document.getElementById('BtnCrearGrupo').addEventListener('click', function(e) {funciones_table.CreateTable_Fazt(); funciones.ShowGroupCreator();})
 
 // ? cuando escogemos un color del menu desplegable de colores para grupos
 // ? con esto el boton de escoger color se actualiza con el boton escogido
