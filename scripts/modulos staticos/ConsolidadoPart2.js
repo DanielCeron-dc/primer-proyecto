@@ -15,10 +15,8 @@ export default class Consolidado_Mensualidad {
         
         if (element.id === "month"){
             
-           if (element.checked === false){return element.checked = true}
+            if (element.checked === false){return element.checked = true}
             const tabla_activa = element.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-            
-
             
             UI.CleanOverlay();
             var f = new Date();
@@ -29,7 +27,7 @@ export default class Consolidado_Mensualidad {
             
             ` 
                  
-                <h6>¿quiere diligenciar la mensualidad de ${element.name} del estudiante: ${tabla_activa.cells[1].textContent} ?</h6>
+                <h6>¿quiere diligenciar la mensualidad de ${element.name} del estudiante: ${tabla_activa.cells[2].textContent} ?</h6>
                 <div class="input-group">
                     <input  id = "UbicacionRecibo" placeholder  = "ubicacion copia recibo" type="text" required class="form-control">
                     <input  id = "paymentDate" value = "${date}" type="text" required class="form-control">

@@ -156,6 +156,7 @@
 /* ------------------------- */
 .overlay {
 	visibility: hidden;
+	z-index: inherit;
 	background: rgba(0, 0, 0, 0.295);
 	position: fixed;
 	top: 0;

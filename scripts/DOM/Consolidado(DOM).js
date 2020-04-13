@@ -1,6 +1,7 @@
 
 import funciones from "../modulos staticos/Consolidado.js";
 import funciones_mensualidad from "../modulos staticos/ConsolidadoPart2.js"
+import funciones_table from "../modulos staticos/ConsolidadoPart3.js";
 
  // ? crear grupo 
 document.getElementById("Grupo-form").addEventListener('submit',function(e){
@@ -12,7 +13,7 @@ document.getElementById("Grupo-form").addEventListener('submit',function(e){
 
 
 // ? unidir al boton "+" para desplegar menu de opciones para crear grupo
-document.getElementById('BtnCrearGrupo').addEventListener('click', function(e) {funciones.ShowGroupCreator();})
+document.getElementById('BtnCrearGrupo').addEventListener('click', function(e) {funciones_table.CreateTable(); funciones.ShowGroupCreator();})
 
 // ? cuando escogemos un color del menu desplegable de colores para grupos
 // ? con esto el boton de escoger color se actualiza con el boton escogido
@@ -56,6 +57,7 @@ document.getElementById ('gruposCreados').addEventListener('click', function(e){
 document.getElementById ('App').addEventListener('click', function(e){
     funciones_mensualidad.OverlayToAddMonthlyPayment(e.target);
     funciones_mensualidad.overlayToEditMonthlyPayment(e.target);
+    funciones_table.OverlayToEditRow(e.target);
     funciones.OverlayToEliminateGroup(e.target);
     
 })
