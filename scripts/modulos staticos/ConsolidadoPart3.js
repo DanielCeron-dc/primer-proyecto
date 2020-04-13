@@ -17,9 +17,7 @@ export default class Consolidado_tabla {
 
     static OverlayToEditRow(element){
         if (element.name === "editRow"){
-
             const tabla_activa = element.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-            
             UI.CleanOverlay();
             document.getElementById("OverlayModificator").innerHTML = 
             ` 
@@ -43,7 +41,7 @@ export default class Consolidado_tabla {
       
             document.getElementById("Continuar").addEventListener('click', function(){
             
-                Consolidado_tabla.EditRow(tabla_activa,document.getElementById("StudentName").value ,document.getElementById("dateOfAdmission").value )
+                Consolidado_tabla.EditRow(tabla_activa,document.getElementById("StudentName").value ,document.getElementById("dateOfAdmission").value ,document.getElementById("description").value )
                 Animaciones.OculatarOverlay();
             })
            
@@ -54,7 +52,10 @@ export default class Consolidado_tabla {
         }
     }
 
-    static EditRow (tabla,  nombre,  fecha_ingreso){
+    static EditRow (tabla,  nombre,  fecha_ingreso, descripcion){
+
+            const indice = tabla.cells[0].textContent;
+            document.getElementById("Observaciones"+indice).textContent = descripcion;
             tabla.cells[2].textContent = nombre;
             tabla.cells[1].textContent = fecha_ingreso;
 
@@ -534,7 +535,7 @@ export default class Consolidado_tabla {
                                        <li><a href="#">
 
                                         <h4>Observaciones</h4>
-                                        <h6 = "Observaciones">Sin observaciones</h6>
+                                        <h6 id = "Observaciones${conteo+1}" >Sin observaciones</h6>
                                         <button class = "btn btn-outline-dark"id = "editRow" name = "editRow" >editar</button>
                                        </a></li>
                                    </ul>
